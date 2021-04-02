@@ -197,7 +197,7 @@
 
     "email": {
         "enabled": false,
-        "fromAddress": "donotreply@allcoinspool.com",
+        "fromAddress": "your email address",
         "transport": "sendmail",
         "sendmail": {
             "path": "/usr/sbin/sendmail"
