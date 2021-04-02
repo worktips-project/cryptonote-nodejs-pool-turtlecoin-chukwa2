@@ -1,8 +1,20 @@
-cryptonote-nodejs-pool
+# cryptonote-nodejs-pool-turtlecoin-chukwa2
 ======================
+
+#### This pool is now operating on this website:
+Turtlecoin Pool
+* https://allcoinspool.com/
+* [GitHub Issues](https://github.com/masterprogrammer513/cryptonote-nodejs-pool-turtlecoin-chukwa2/issues)
+* [Telegram Group](https://t.me/AllCoinsPool)
+* [Discord Group](https://discord.gg/kZb5VbrSnS)
 
 High performance Node.js (with native C addons) mining pool for CryptoNote based coins. Comes with lightweight example front-end script which uses the pool's AJAX API. Support for Cryptonight (Original, Monero v7, Stellite v7), Cryptonight Light (Original, Aeon v7, IPBC) Cryptonight Fast (Electronero/Crystaleum), and Cryptonight Heavy (Sumokoin) algorithms.
 
+#### Please read Turtlecoin Section 
+* New API for TurtleCoin daemon
+* New API for TurlteCoin Wallet
+* New config file with discord support
+* Default config file work with TRTL
 
 #### Table of Contents
 * [Features](#features)
@@ -45,7 +57,7 @@ Features
 * Modular components for horizontal scaling (pool server, database, stats/API, payment processing, front-end)
 * SSL support for both pool and API servers
 * RBPPS (PROP) payment system
-
+* 
 #### Live statistics API
 * Currency network/block difficulty
 * Current block height
@@ -55,6 +67,8 @@ Features
 * Blocks found (pending, confirmed, and orphaned)
 * Historic charts of pool's hashrate, miners count and coin difficulty
 * Historic charts of users's hashrate and payments
+* Discord Notification channele
+
 
 #### Mined blocks explorer
 * Mined blocks table with block status (pending, confirmed, and orphaned)
@@ -76,6 +90,7 @@ Features
 * Coin daemon & wallet RPC services stability monitoring
 * Log files data access
 * Users list with detailed statistics
+* Discord test
 
 #### Pool stability monitoring
 * Detailed logging in process console & log files
@@ -154,7 +169,7 @@ sudo su - your-user
 Clone the repository and run `npm update` for all the dependencies to be installed:
 
 ```bash
-git clone https://github.com/dvandal/cryptonote-nodejs-pool.git pool
+git clone https://github.com/masterprogrammer513/cryptonote-nodejs-pool-turtlecoin-chukwa2.git pool
 cd pool
 
 npm update
@@ -774,6 +789,21 @@ Curl can be used to use the JSON-RPC commands from command-line. Here is an exam
 curl 127.0.0.1:18081/json_rpc -d '{"method":"getblockheaderbyheight","params":{"height":100}}'
 ```
 
+TurtleCoin Section
+===
+
+* 1- Run daemon with enable-blockexplorer command
+```bash
+./TurtleCoind --enable-blockexplorer 
+```
+* 2- Run the wallet-api with coinbase transaction  
+```bash
+./wallet-api --scan-coinbase-transactions  --rpc-password yourRpcPasssword(Not wallet password)  
+```
+* 3-Open the wallet with Curl command 
+```bash
+curl -X POST "http://127.0.0.1:8070/wallet/open" -H "accept: application/json" -H "X-API-KEY: yourRpcPasssword" -H "Content-Type: application/json" -d "{ \"daemonHost\": \"127.0.0.1\", \"daemonPort\": 11898, \"filename\": \"/your/wallet/file/address/name.wallet\", \"password\": \"YourWalletPassword\"}"
+```
 
 ### Monitoring Your Pool
 
@@ -781,17 +811,16 @@ curl 127.0.0.1:18081/json_rpc -d '{"method":"getblockheaderbyheight","params":{"
 * To monitor server load for CPU, Network, IO, etc - I suggest using [Netdata](https://github.com/firehol/netdata)
 * To keep your pool node script running in background, logging to file, and automatically restarting if it crashes - I suggest using [forever](https://github.com/nodejitsu/forever) or [PM2](https://github.com/Unitech/pm2)
 
-
 Community / Support
 ===
 
-* [GitHub Issues](https://github.com/dvandal/cryptonote-nodejs-pool/issues)
-* [Telegram Group](http://t.me/CryptonotePool)
+* [GitHub Issues](https://github.com/masterprogrammer513/cryptonote-nodejs-pool-turtlecoin-chukwa2/issues)
+* [Telegram Group](https://t.me/AllCoinsPool)
+* [Discord Group](https://discord.gg/kZb5VbrSnS)
 
 #### Pools Using This Software
 
-* https://pool.leviar.io/
-* https://pool.croat.community/
+* https://allcoinspool.com/
 
 Referral Links
 --------------
@@ -803,7 +832,8 @@ Referral Links
 Donations
 ---------
 
-Thanks for supporting my works on this project! If you want to make a donation to [Dvandal](https://github.com/dvandal/), the developper of this project, you can send any amount of your choice to one of theses addresses:
+Thanks for supporting my works on this project! If you want to make a donation, the developpers of this project, you can send any amount of your choice to one of theses addresses:
+
 
 * Bitcoin (BTC): `392gS9zuYQBghmMpK3NipBTaQcooR9UoGy`
 * Bitcoin Cash (BCH): `qp46fz7ht8xdhwepqzhk7ct3aa0ucypfgv5qvv57td`
@@ -821,10 +851,12 @@ Thanks for supporting my works on this project! If you want to make a donation t
 * Tezos (XTZ): `tz1T1idcT5hfyjfLHWeqbYvmrcYn5JgwrJKW`
 * Zcash (ZCH): `t1YTGVoVbeCuTn3Pg9MPGrSqweFLPGTQ7on`
 * 0x (ZRX): `0x4e52AAfC6dAb2b7812A0a7C24a6DF6FAab65Fc9a`
+* TurtleCoin TRTL: `TRTLv1xEFNTVfCDkNKzgU9KEKJPmLgvsB8VGMcrexiiMNf82hNNbZyPFg214Ka7j8zQps7jif4JUpVzBEocER3Gv4p8khhvMAAc`
+* NINJA: `Ninja13WsjihQba5TwKZ8EXfxk6kK3BvNEgMF8jk7pdgR1peJyoc6a47TopxDgWURSbgtsC7FETbG4AWzaxQheZk6T7wa8hiyCg2N`
 
 Credits
 ---------
-
+* [masterprogrammer513](//github.com/masterprogrammer513) -  cryptonote-nodejs-pool-turtlecoin-chukwa2 from which current project is forked.
 * [fancoder](//github.com/fancoder) - Developper on cryptonote-universal-pool project from which current project is forked.
 * [dvandal](//github.com/dvandal) - Developer of cryptonote-nodejs-pool software
 

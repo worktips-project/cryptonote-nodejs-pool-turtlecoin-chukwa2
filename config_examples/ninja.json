@@ -1,24 +1,26 @@
-{
-    "poolHost": "your.pool.host",
-	
+{ 
+    "poolHost": "your.host.com",
+
     "coin": "NinjaCoin",
     "symbol": "NINJA",
-    "coinUnits": 100,
-    "coinDecimalPlaces": 2,
+    "coinUnits": 100000,
+    "coinDecimalPlaces": 5,
     "coinDifficultyTarget": 30,
-	"blockchainExplorer": "http://explorer.ninjacoin.org/?hash={id}#blockchain_block",
-    "transactionExplorer": "http://explorer.ninjacoin.org/?hash={id}#blockchain_transaction",
-	
+    "blockchainExplorer": "https://explorer.ninjacoin.org/block.html?hash={id}",
+    "transactionExplorer": "https://explorer.ninjacoin.org/transaction.html?hash={id}",
     "daemonType": "bytecoin",
-    "cnAlgorithm": "chukwa",
-    "cnVariant": 0,
+    "cnAlgorithm": "argon2",
+    "cnVariant": 1,
     "cnBlobType": 2,
+	"previousOffset": 7,
+	"offset": 2,
+    "isRandomX": false,
 
     "logging": {
         "files": {
             "level": "info",
             "directory": "logs",
-            "flushInterval": 5
+            "flushInterval": 10
         },
         "console": {
             "level": "info",
@@ -26,64 +28,48 @@
         }
     },
     "hashingUtil": true,
-    "childPools": null,
+    "childPools": null, 
     "poolServer": {
         "enabled": true,
-	"mergedMining": false,
-        "clusterForks": "auto",
-        "poolAddress": "** Your pool wallet address **",
+        "mergedMining": false,
+        "clusterForks":  6,
+        "poolAddress": "***ninja wallet address***",
         "intAddressPrefix": null,
-        "blockRefreshInterval": 600,
+        "blockRefreshInterval": 1000,
         "minerTimeout": 600,
-        "sslCert": "./cert.pem",
-        "sslKey": "./privkey.pem",
-        "sslCA": "./chain.pem",
         "ports": [
-            {
-                "port": 3333,
-                "difficulty": 5000,
+            {   
+                "port": 3013,
+                "difficulty": 50000,
                 "desc": "Low end hardware"
             },
             {
-                "port": 4444,
-                "difficulty": 15000,
+                "port": 3037,
+                "difficulty": 500000,
                 "desc": "Mid range hardware"
             },
             {
-                "port": 5555,
-                "difficulty": 25000,
+                "port": 3038,
+                "difficulty": 1000000,
                 "desc": "High end hardware"
-            },
-            {
-                "port": 7777,
-                "difficulty": 500000,
-                "desc": "Cloud-mining / NiceHash"
-            },
-            {
-                "port": 8888,
-                "difficulty": 25000,
-                "desc": "Hidden port",
-                "hidden": true
-            },
-            {
-                "port": 9999,
-                "difficulty": 20000,
-                "desc": "SSL connection",
-                "ssl": true
             }
         ],
-        "varDiff": {
+       "varDiff": {
             "minDiff": 10000,
             "maxDiff": 100000000,
-            "targetTime": 30,
-            "retargetTime": 30,
+            "targetTime": 35,
+            "retargetTime": 40,
             "variancePercent": 30,
-            "maxJump": 100
+            "maxJump": 40
         },
+
+
+
+
         "paymentId": {
             "addressSeparator": "+"
         },
-	"separators": [{"value":"+","desc":"plus"}, {"value":".","desc":"dot"}],
+        "separators": [{"value":"+","desc":"plus"}, {"value":".","desc":"dot"}],
         "fixedDiff": {
             "enabled": true,
             "addressSeparator": "."
@@ -96,7 +82,7 @@
             "penalty": 30
         },
         "banning": {
-            "enabled": true,
+            "enabled": false,
             "time": 120,
             "invalidPercent": 80,
             "checkThreshold": 30
@@ -112,25 +98,27 @@
     "payments": {
         "enabled": true,
         "interval": 300,
-        "maxAddresses": 50,
+        "maxAddresses": 11,
         "mixin": 3,
         "priority": 0,
-        "transferFee": 50,
+        "transferFee": 2953,
         "dynamicTransferFee": true,
         "minerPayFee" : true,
-        "minPayment": 1000,
-        "maxPayment": 5000000,
-        "maxTransactionAmount": 15000000,
-        "denomination": 10
+        "minPayment": 100000,
+        "maxPayment": 35000000,
+        "maxTransactionAmount": 500000000,
+        "denomination": 100000
     },
+
 
     "blockUnlocker": {
         "enabled": true,
-        "interval": 30,
-        "depth": 40,
-        "poolFee": 0,
-        "devDonation": 0,
-        "networkFee": 0,
+        "interval": 40,
+        "depth": 80,
+        "poolFee": 0.1,
+		"soloFee": 0.1,
+        "devDonation": 0.5,
+        "networkFee": 0.0,
         "fixBlockHeightRPC": false
     },
 
@@ -139,33 +127,29 @@
         "hashrateWindow": 600,
         "updateInterval": 5,
         "bindIp": "0.0.0.0",
-        "port": 8117,
+        "port": 8217,
         "blocks": 30,
         "payments": 30,
-        "password": "your_password",
-        "ssl": false,
-        "sslPort": 8119,
-        "sslCert": "./cert.pem",
-        "sslKey": "./privkey.pem",
-        "sslCA": "./chain.pem",
-        "trustProxyIP": true
+        "password": "*** admin password api ***",
+        "ssl": true,
+        "sslPort": 8219,
+        "trustProxyIP": false
     },
 
     "daemon": {
         "host": "127.0.0.1",
         "port": 11801
     },
-
     "wallet": {
         "host": "127.0.0.1",
-        "port": 11805
+        "port": 8170,
+        "password": "rpc Password"
     },
-
     "redis": {
         "host": "127.0.0.1",
         "port": 6379,
         "auth": null,
-        "db": 0,
+        "db": 1,
         "cleanupInterval": 15
     },
 
@@ -199,23 +183,32 @@
             "blockUnlocked": "*Block mined at height* _%HEIGHT%_ *with* _%REWARD%_ *and* _%EFFORT%_ *effort on* _%TIME%_*.*",
             "blockOrphaned": "*Block orphaned at height* _%HEIGHT%_ *:(*",
             "payment": "A payment of _%AMOUNT%_ has been sent."
-        }
+        },
+        "discordMessage": {
+           "workerConnected": "Your worker _%WORKER_NAME%_ for address _%MINER%_ is now connected from ip _%IP%_.",
+           "workerTimeout": "Your worker _%WORKER_NAME%_ for address _%MINER%_ has stopped submitting hashes on _%LAST_HASH%_.",
+           "workerBanned": "Your worker _%WORKER_NAME%_ for address _%MINER%_ has been banned.",
+           "blockFound": "*Block found at height* _%HEIGHT%_ *by miner* _%MINER%_*! Waiting maturity.*",
+           "blockUnlocked": "*Block mined at height* _%HEIGHT%_ *with* _%REWARD%_ *and* _%EFFORT%_ *effort on* _%TIME%_*.*",
+           "blockOrphaned": "*Block orphaned at height* _%HEIGHT%_ *:(*",
+           "payment": "A payment of _%AMOUNT%_ has been sent."
+       }
     },
 
     "email": {
         "enabled": false,
-        "fromAddress": "your@email.com",
+        "fromAddress": "donotreply@allcoinspool.com",
         "transport": "sendmail",
         "sendmail": {
             "path": "/usr/sbin/sendmail"
         },
         "smtp": {
-            "host": "smtp.example.com",
+            "host": "127.0.0.1",
             "port": 587,
             "secure": false,
             "auth": {
-                "user": "username",
-                "pass": "password"
+                "user": "your email",
+                "pass": "your pass"
             },
             "tls": {
                 "rejectUnauthorized": false
@@ -225,12 +218,16 @@
             "key": "your-private-key",
             "domain": "mg.yourdomain"
         }
+    },	
+ 	"discord": {
+        "enabled": false,
+        "token": "DIscord Token",
+        "channel": "823467046578290720"
     },
-
     "telegram": {
         "enabled": false,
-        "token": "",
-        "channel": "",
+        "token": "Telegram bot token",
+        "channel": "Channel name",
         "channelStats": {
             "enabled": false,
             "interval": 30
@@ -241,7 +238,6 @@
             "disable": "/disable"
         }
     },
-    
     "monitoring": {
         "daemon": {
             "checkInterval": 60,
@@ -254,7 +250,7 @@
     },
 
     "prices": {
-        "source": "coingecko",
+        "source": "tradeogre",
         "currency": "USD"
     },
 
@@ -285,7 +281,7 @@
                 "maximumPeriod": 604800
             },
             "price": {
-                "enabled": true,
+                "enabled": false,
                 "updateInterval": 1800,
                 "stepInterval": 10800,
                 "maximumPeriod": 604800
