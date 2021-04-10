@@ -17,7 +17,7 @@
 		"cryptoforknote-util": "git://github.com/MoneroOcean/node-cryptoforknote-util.git",
 		"cryptonight-hashing": "git://github.com/MoneroOcean/node-cryptonight-hashing.git",
 		"dateformat": "*",
-		"discord.js": "^12.5.1",
+		"discord.js": "*",
 		"domexception": "*",
 		"mailgun.js": "*",
 		"node-telegram-bot-api": "*",
