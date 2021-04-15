@@ -3,7 +3,7 @@
 	"version": "1.4.0",
 	"license": "GPL-2.0",
 	"Original author": "Daniel Vandal",
-	"Maintained by": "Musclesonvacation",
+	"Maintained by": "AllCoinsPool.com",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/dvandal/cryptonote-nodejs-pool.git"
@@ -13,7 +13,7 @@
 		"base58-native": "*",
 		"bignum": "*",
 		"bufferutil": "*",
-		"cli-color": "*",
+		"cli-color-c": "*",
 		"cryptoforknote-util": "git://github.com/MoneroOcean/node-cryptoforknote-util.git",
 		"cryptonight-hashing": "git://github.com/MoneroOcean/node-cryptonight-hashing.git",
 		"dateformat": "*",
@@ -29,6 +29,6 @@
 		"utf-8-validate": "*"
 	},
 	"engines": {
-		"node": ">=8.11.3"
+		"node": ">=12"
 	}
 }
