@@ -115,7 +115,7 @@ Usage
 * [Node.js](http://nodejs.org/) v12.0+
   * For Ubuntu: 
  ```
-  curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+  curl -fsSL https://deb.nodesource.com/setup_12.x | sudo -E bash -
   sudo apt-get install -y nodejs
  ```
   * Or use NVM(https://github.com/creationix/nvm) for debian/ubuntu.
