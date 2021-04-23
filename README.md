@@ -137,7 +137,7 @@ echo 1024 > /proc/sys/net/core/somaxconn
  ```
  chmod +x /etc/rc.local
  ```
- 
+* For Ubuntu: `apt-get install build-essential`
 * libssl required for the node-multi-hashing module
   * For Ubuntu: `sudo apt-get install libssl-dev`
 
